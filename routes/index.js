@@ -29,6 +29,7 @@ router.get( '/api/:id', function ( req, res ) {
 
 // POST insert data
 router.post( '/api', function ( req, res ) {
+  req.body.completed = false;
   collection(COL).insertOne( req.body ).then(function(r) {
     res.send( r );
   });
