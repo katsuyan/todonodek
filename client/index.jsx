@@ -17,7 +17,7 @@ export default class Index extends React.Component {
     super(props);
 
     this.state = {
-      todoList: [{name: "aaa"}]
+      todoList: [{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"}]
     };
   }
 
@@ -29,15 +29,29 @@ export default class Index extends React.Component {
           <MuiThemeProvider>
             <div>
               <h1>TODO LIST</h1>
+                <Col xs={11}>
+                  {this.state.todoList.map((todo, i) => (
+                    <List key={i}>
+                      <ListItem
+                        primaryText={todo.name}
+                        leftCheckbox={<Checkbox />} />
+                      <Divider />
+                    </List>
+                  ))}
+                </Col>
+                <Col xs={1}>
                 {this.state.todoList.map((todo, i) => (
-                  <List key={i}>
-                    <ListItem
-                      primaryText={todo.name}
-                      leftCheckbox={<Checkbox />}
-                      rightIconButton={<ContentInbox /> } />
-                    <Divider />
-                  </List>
+                  <IconButton
+                    key={i}
+                    style={{marginTop: 21}}
+                    tooltip="Delete"
+                    touch={true}
+                    tooltipPosition="bottom-right"
+                    >
+                    <NavigationClose />
+                  </IconButton>
                 ))}
+              </Col>
             </div>
           </MuiThemeProvider>
         </div>

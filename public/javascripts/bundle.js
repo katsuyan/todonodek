@@ -70,7 +70,7 @@ var Index = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
 
     _this.state = {
-      todoList: [{ name: "aaa" }]
+      todoList: [{ name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }]
     };
     return _this;
   }
@@ -96,17 +96,37 @@ var Index = function (_React$Component) {
                 null,
                 'TODO LIST'
               ),
-              this.state.todoList.map(function (todo, i) {
-                return _react2.default.createElement(
-                  _List.List,
-                  { key: i },
-                  _react2.default.createElement(_List.ListItem, {
-                    primaryText: todo.name,
-                    leftCheckbox: _react2.default.createElement(_Checkbox2.default, null),
-                    rightIconButton: _react2.default.createElement(_inbox2.default, null) }),
-                  _react2.default.createElement(_Divider2.default, null)
-                );
-              })
+              _react2.default.createElement(
+                _Col2.default,
+                { xs: 11 },
+                this.state.todoList.map(function (todo, i) {
+                  return _react2.default.createElement(
+                    _List.List,
+                    { key: i },
+                    _react2.default.createElement(_List.ListItem, {
+                      primaryText: todo.name,
+                      leftCheckbox: _react2.default.createElement(_Checkbox2.default, null) }),
+                    _react2.default.createElement(_Divider2.default, null)
+                  );
+                })
+              ),
+              _react2.default.createElement(
+                _Col2.default,
+                { xs: 1 },
+                this.state.todoList.map(function (todo, i) {
+                  return _react2.default.createElement(
+                    _IconButton2.default,
+                    {
+                      key: i,
+                      style: { marginTop: 21 },
+                      tooltip: 'Delete',
+                      touch: true,
+                      tooltipPosition: 'bottom-right'
+                    },
+                    _react2.default.createElement(_close2.default, null)
+                  );
+                })
+              )
             )
           )
         )
