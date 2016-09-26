@@ -5,6 +5,11 @@ var ObjectID = require('mongodb').ObjectID;
 var collection = require( '../mongo' );
 var COL = 'todo';
 
+// root
+router.get("/", function(req, res, next){
+    res.render("index", {title: "title"});
+});
+
 // For Cross Origin
 router.all( '/*', function ( req, res, next ) {
   res.contentType( 'json' );
