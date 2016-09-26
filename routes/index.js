@@ -7,9 +7,9 @@ var COL = 'todo';
 
 // For Cross Origin
 router.all( '/*', function ( req, res, next ) {
-    res.contentType( 'json' );
-    res.header( 'Access-Control-Allow-Origin', '*' );
-    next();
+  res.contentType( 'json' );
+  res.header( 'Access-Control-Allow-Origin', '*' );
+  next();
 } );
 
 // GET find
