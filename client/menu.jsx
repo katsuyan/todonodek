@@ -21,16 +21,8 @@ export default class Menu extends React.Component {
     return (
       <MuiThemeProvider>
         <AppBar
-          title={<a href="/#/" style={styles.title}>TODO BINGO</a>}
+          title={<a href="/" style={styles.title}>TODO LIST</a>}
           showMenuIconButton={false}
-          iconElementRight={
-            <Dropdown color="primary" alignMenu="right">
-              <DropdownItem link="/#/new">New</DropdownItem>
-              <DropdownItem link={"/#/edit/" + this.props.id} style={{display: this.props.edit}}>
-                Edit
-              </DropdownItem>
-            </Dropdown>
-          }
           />
       </MuiThemeProvider>
     )
