@@ -137,7 +137,6 @@ export default class Index extends React.Component {
                 style={{margin: 12, marginLeft: 20}}
               />
             </div>
-
           </MuiThemeProvider>
         </div>
       </div>
