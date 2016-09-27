@@ -72,7 +72,6 @@ export default class Index extends React.Component {
     var self = this;
     var id = parseInt(e.currentTarget.id);
     var changeTodo = this.state.todoList[id];
-    changeTodo.completed = !changeTodo.completed;
     var url = "/todos/" + changeTodo._id;
 
     $.ajax({
@@ -80,7 +79,7 @@ export default class Index extends React.Component {
       url: url,
       data: {
         name: changeTodo.name,
-        completed: changeTodo.completed
+        completed: !changeTodo.completed
       }
     }).done(function(data) {
       self.load();

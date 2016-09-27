@@ -145,7 +145,6 @@ var Index = function (_React$Component) {
       var self = this;
       var id = parseInt(e.currentTarget.id);
       var changeTodo = this.state.todoList[id];
-      changeTodo.completed = !changeTodo.completed;
       var url = "/todos/" + changeTodo._id;
 
       _jquery2.default.ajax({
@@ -153,7 +152,7 @@ var Index = function (_React$Component) {
         url: url,
         data: {
           name: changeTodo.name,
-          completed: changeTodo.completed
+          completed: !changeTodo.completed
         }
       }).done(function (data) {
         self.load();
