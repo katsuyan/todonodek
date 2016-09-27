@@ -17,19 +17,43 @@ export default class Index extends React.Component {
 
   constructor(props) {
     super(props);
+    self = this;
 
-    var todoList = [];
     $.ajax({
       type: "GET",
       url: "/todo",
-      async: false,
+      async: false
     }).done(function(data) {
-      todoList = data;
+      self.state = {
+        todoList: data,
+        todo: ''
+      };
     });
+  }
 
-    this.state = {
-      todoList: todoList
-    };
+  reload() {
+    var self = this;
+    $.ajax({
+      type: "GET",
+      url: "/todo"
+    }).done(function(data) {
+      self.setState({
+        todoList: data,
+        todo: ''
+      })
+    });
+  }
+
+  add(e) {
+    var self = this;
+
+    $.ajax({
+      type: 'POST',
+      url: "/todo",
+      data: {name: this.state.todo}
+    }).done(function(data) {
+      self.reload();
+    });
   }
 
   render() {
@@ -46,7 +70,11 @@ export default class Index extends React.Component {
                 onChange={(e)=>{this.setState({todo: e.target.value});}}
                 style={{marginLeft: 700}}
               />
-              <RaisedButton label="add" style={{margin: 12}}/>
+              <RaisedButton
+                label="add"
+                onClick={this.add.bind(this)}
+                style={{margin: 12}}
+              />
               <Col xs={11}>
                 {this.state.todoList.map((todo, i) => (
                   <List key={i}>

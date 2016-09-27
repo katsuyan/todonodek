@@ -73,22 +73,49 @@ var Index = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
 
-    var todoList = [];
+    self = _this;
+
     _jquery2.default.ajax({
       type: "GET",
       url: "/todo",
       async: false
     }).done(function (data) {
-      todoList = data;
+      self.state = {
+        todoList: data,
+        todo: ''
+      };
     });
-
-    _this.state = {
-      todoList: todoList
-    };
     return _this;
   }
 
   _createClass(Index, [{
+    key: 'reload',
+    value: function reload() {
+      var self = this;
+      _jquery2.default.ajax({
+        type: "GET",
+        url: "/todo"
+      }).done(function (data) {
+        self.setState({
+          todoList: data,
+          todo: ''
+        });
+      });
+    }
+  }, {
+    key: 'add',
+    value: function add(e) {
+      var self = this;
+
+      _jquery2.default.ajax({
+        type: 'POST',
+        url: "/todo",
+        data: { name: this.state.todo }
+      }).done(function (data) {
+        self.reload();
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
@@ -115,7 +142,11 @@ var Index = function (_React$Component) {
                 },
                 style: { marginLeft: 700 }
               }),
-              _react2.default.createElement(_RaisedButton2.default, { label: 'add', style: { margin: 12 } }),
+              _react2.default.createElement(_RaisedButton2.default, {
+                label: 'add',
+                onClick: this.add.bind(this),
+                style: { margin: 12 }
+              }),
               _react2.default.createElement(
                 _Col2.default,
                 { xs: 11 },
