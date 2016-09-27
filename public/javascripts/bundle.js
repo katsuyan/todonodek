@@ -148,11 +148,24 @@ var Index = function (_React$Component) {
   }, {
     key: 'changeComp',
     value: function changeComp(e) {
-      console.log(e.currentTarget.id);
+      var self = this;
       var id = parseInt(e.currentTarget.id);
       var changeTodo = this.state.todoList[id];
       changeTodo.completed = !changeTodo.completed;
+      var url = "/todos/" + changeTodo._id;
       console.log(changeTodo);
+
+      _jquery2.default.ajax({
+        type: 'PUT',
+        url: url,
+        data: {
+          name: changeTodo.name,
+          completed: changeTodo.completed
+        }
+      }).done(function (data) {
+        console.log(data);
+        self.reload();
+      });
     }
 
     // render
