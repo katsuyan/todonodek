@@ -95,18 +95,7 @@ export default class Index extends React.Component {
         <div className="container">
           <MuiThemeProvider>
             <div>
-              <TextField
-                hintText="AddTodo"
-                floatingLabelText="AddTodo"
-                value={this.state.todo}
-                onChange={(e)=>{this.setState({todo: e.target.value});}}
-                style={{marginLeft: 700}}
-              />
-              <RaisedButton
-                label="add"
-                onClick={this.add.bind(this)}
-                style={{margin: 12}}
-              />
+
               <Col xs={11}>
                 {this.state.todoList.map((todo, i) => (
                   <List key={i}>
@@ -136,7 +125,20 @@ export default class Index extends React.Component {
                 </IconButton>
                 ))}
               </Col>
+              <TextField
+                hintText="AddTodo"
+                floatingLabelText="AddTodo"
+                value={this.state.todo}
+                onChange={(e)=>{this.setState({todo: e.target.value});}}
+                style={{marginLeft: 27}}
+              />
+              <RaisedButton
+                label="add"
+                onClick={this.add.bind(this)}
+                style={{margin: 12}}
+              />
             </div>
+
           </MuiThemeProvider>
         </div>
       </div>

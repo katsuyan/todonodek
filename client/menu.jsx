@@ -2,8 +2,6 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
-import Dropdown from 'muicss/lib/react/dropdown';
-import DropdownItem from 'muicss/lib/react/dropdown-item';
 
 // style
 const styles = {
@@ -27,6 +25,7 @@ export default class Menu extends React.Component {
         <AppBar
           title={<a href="/" style={styles.title}>TODO LIST</a>}
           showMenuIconButton={false}
+          style={{marginBottom: 30}}
           />
       </MuiThemeProvider>
     )
