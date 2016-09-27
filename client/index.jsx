@@ -96,7 +96,7 @@ export default class Index extends React.Component {
           <MuiThemeProvider>
             <div>
 
-              <Col xs={11}>
+              <Col xs={10} sm={11}>
                 {this.state.todoList.map((todo, i) => (
                   <List key={i}>
                     <ListItem
@@ -110,7 +110,7 @@ export default class Index extends React.Component {
                   </List>
                 ))}
               </Col>
-              <Col xs={1}>
+              <Col xs={2} sm={1}>
               {this.state.todoList.map((todo, i) => (
                 <IconButton
                   key={i}

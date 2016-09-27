@@ -182,7 +182,7 @@ var Index = function (_React$Component) {
               null,
               _react2.default.createElement(
                 _Col2.default,
-                { xs: 11 },
+                { xs: 10, sm: 11 },
                 this.state.todoList.map(function (todo, i) {
                   return _react2.default.createElement(
                     _List.List,
@@ -200,7 +200,7 @@ var Index = function (_React$Component) {
               ),
               _react2.default.createElement(
                 _Col2.default,
-                { xs: 1 },
+                { xs: 2, sm: 1 },
                 this.state.todoList.map(function (todo, i) {
                   return _react2.default.createElement(
                     _IconButton2.default,
