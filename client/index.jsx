@@ -90,7 +90,6 @@ export default class Index extends React.Component {
         completed: changeTodo.completed
       }
     }).done(function(data) {
-      console.log(data);
       self.reload();
     });
   }

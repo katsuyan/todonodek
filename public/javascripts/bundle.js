@@ -163,7 +163,6 @@ var Index = function (_React$Component) {
           completed: changeTodo.completed
         }
       }).done(function (data) {
-        console.log(data);
         self.reload();
       });
     }

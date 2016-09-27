@@ -34,6 +34,11 @@ router.post( '/todos', function ( req, res ) {
 
 // PUT update todo
 router.put( '/todos/:id', function ( req, res ) {
+  if(req.body.completed === "true") {
+    req.body.completed = true;
+  } else {
+    req.body.completed = false;
+  }
   collection(COL).findOneAndUpdate( { _id: new ObjectID( req.params.id ) }, req.body, {}, function(err, r){
     res.send( r );
   } );
