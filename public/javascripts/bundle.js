@@ -77,8 +77,17 @@ var Index = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
 
+    var todoList = [];
+    _jquery2.default.ajax({
+      type: "GET",
+      url: "/todo",
+      async: false
+    }).done(function (data) {
+      todoList = data;
+    });
+
     _this.state = {
-      todoList: [{ name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }, { name: "aaa" }]
+      todoList: todoList
     };
     return _this;
   }
@@ -120,7 +129,7 @@ var Index = function (_React$Component) {
                     { key: i },
                     _react2.default.createElement(_List.ListItem, {
                       primaryText: todo.name,
-                      leftCheckbox: _react2.default.createElement(_Checkbox2.default, null) }),
+                      leftCheckbox: _react2.default.createElement(_Checkbox2.default, { defaultChecked: todo.completed }) }),
                     _react2.default.createElement(_Divider2.default, null)
                   );
                 })

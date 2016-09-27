@@ -12,13 +12,23 @@ import TextField from 'material-ui/TextField';
 import Checkbox from 'material-ui/Checkbox';
 import $ from "jquery";
 import RaisedButton from 'material-ui/RaisedButton';
+
 export default class Index extends React.Component {
 
   constructor(props) {
     super(props);
 
+    var todoList = [];
+    $.ajax({
+      type: "GET",
+      url: "/todo",
+      async: false,
+    }).done(function(data) {
+      todoList = data;
+    });
+
     this.state = {
-      todoList: [{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"},{name: "aaa"}]
+      todoList: todoList
     };
   }
 
@@ -42,7 +52,7 @@ export default class Index extends React.Component {
                   <List key={i}>
                     <ListItem
                       primaryText={todo.name}
-                      leftCheckbox={<Checkbox />} />
+                      leftCheckbox={<Checkbox defaultChecked={todo.completed}/>} />
                     <Divider />
                   </List>
                 ))}
