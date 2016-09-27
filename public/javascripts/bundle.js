@@ -78,27 +78,21 @@ var Index = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
 
-    self = _this;
+    _this.state = {
+      todoList: [],
+      todo: ''
+    };
 
-    _jquery2.default.ajax({
-      type: "GET",
-      url: "/todos",
-      async: false
-    }).done(function (data) {
-      self.state = {
-        todoList: data,
-        todo: ''
-      };
-    });
+    _this.load();
     return _this;
   }
 
-  // reload is reload state
+  // load is load state
 
 
   _createClass(Index, [{
-    key: 'reload',
-    value: function reload() {
+    key: 'load',
+    value: function load() {
       var self = this;
       _jquery2.default.ajax({
         type: "GET",
@@ -123,7 +117,7 @@ var Index = function (_React$Component) {
         url: "/todos",
         data: { name: this.state.todo }
       }).done(function (data) {
-        self.reload();
+        self.load();
       });
     }
 
@@ -139,7 +133,7 @@ var Index = function (_React$Component) {
         type: 'DELETE',
         url: url
       }).done(function (data) {
-        self.reload();
+        self.load();
       });
     }
 
@@ -153,7 +147,6 @@ var Index = function (_React$Component) {
       var changeTodo = this.state.todoList[id];
       changeTodo.completed = !changeTodo.completed;
       var url = "/todos/" + changeTodo._id;
-      console.log(changeTodo);
 
       _jquery2.default.ajax({
         type: 'PUT',
@@ -163,7 +156,7 @@ var Index = function (_React$Component) {
           completed: changeTodo.completed
         }
       }).done(function (data) {
-        self.reload();
+        self.load();
       });
     }
 

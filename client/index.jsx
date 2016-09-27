@@ -19,22 +19,16 @@ export default class Index extends React.Component {
   //constructor
   constructor(props) {
     super(props);
-    self = this;
+    this.state = {
+      todoList: [],
+      todo: ''
+    }
 
-    $.ajax({
-      type: "GET",
-      url: "/todos",
-      async: false
-    }).done(function(data) {
-      self.state = {
-        todoList: data,
-        todo: ''
-      };
-    });
+    this.load();
   }
 
-  // reload is reload state
-  reload() {
+  // load is load state
+  load() {
     var self = this;
     $.ajax({
       type: "GET",
@@ -56,7 +50,7 @@ export default class Index extends React.Component {
       url: "/todos",
       data: {name: this.state.todo}
     }).done(function(data) {
-      self.reload();
+      self.load();
     });
   }
 
@@ -69,7 +63,7 @@ export default class Index extends React.Component {
       type: 'DELETE',
       url: url,
     }).done(function(data) {
-      self.reload();
+      self.load();
     });
   }
 
@@ -80,7 +74,6 @@ export default class Index extends React.Component {
     var changeTodo = this.state.todoList[id];
     changeTodo.completed = !changeTodo.completed;
     var url = "/todos/" + changeTodo._id;
-    console.log(changeTodo)
 
     $.ajax({
       type: 'PUT',
@@ -90,7 +83,7 @@ export default class Index extends React.Component {
         completed: changeTodo.completed
       }
     }).done(function(data) {
-      self.reload();
+      self.load();
     });
   }
 
