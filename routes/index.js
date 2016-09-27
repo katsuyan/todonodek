@@ -18,22 +18,14 @@ router.all( '/*', function ( req, res, next ) {
 } );
 
 // GET find
-router.get( '/todo', function ( req, res ) {
+router.get( '/todos', function ( req, res ) {
   collection(COL).find().toArray(function(err, docs){
     res.send(docs);
   })
 } );
 
-// GET find :id
-router.get( '/todo/:id', function ( req, res ) {
-  collection(COL).findOne( { _id: new ObjectID( req.params.id ) }, {}, function(err, r){
-    res.send( r );
-  } );
-} );
-
-
 // POST insert data
-router.post( '/todo', function ( req, res ) {
+router.post( '/todos', function ( req, res ) {
   req.body.completed = false;
   collection(COL).insertOne( req.body ).then(function(r) {
     res.send( r );
@@ -41,14 +33,14 @@ router.post( '/todo', function ( req, res ) {
 } );
 
 // PUT update data
-router.put( '/todo/:id', function ( req, res ) {
+router.put( '/todos/:id', function ( req, res ) {
   collection(COL).findOneAndUpdate( { _id: new ObjectID( req.params.id ) }, req.body, {}, function(err, r){
     res.send( r );
   } );
 } );
 
 // DELETE remove data
-router.delete( '/:id', function ( req, res ) {
+router.delete( '/todos/:id', function ( req, res ) {
   collection(COL).findOneAndDelete( { _id: new ObjectID( req.params.id ) }, {}, function(err, r){
     res.send( r );
   } );

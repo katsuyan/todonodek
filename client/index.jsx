@@ -56,6 +56,10 @@ export default class Index extends React.Component {
     });
   }
 
+  del(e) {
+    
+  }
+
   render() {
     return (
       <div>

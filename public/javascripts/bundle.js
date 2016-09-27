@@ -116,6 +116,9 @@ var Index = function (_React$Component) {
       });
     }
   }, {
+    key: 'del',
+    value: function del(e) {}
+  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
