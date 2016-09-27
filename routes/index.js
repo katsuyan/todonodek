@@ -39,7 +39,7 @@ router.put( '/todos/:id', function ( req, res ) {
   } );
 } );
 
-// DELETE remove todo
+// DELETE delete todo
 router.delete( '/todos/:id', function ( req, res ) {
   collection(COL).findOneAndDelete( { _id: new ObjectID( req.params.id ) }, {}, function(err, r){
     res.send( r );

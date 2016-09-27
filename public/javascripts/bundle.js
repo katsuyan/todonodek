@@ -132,7 +132,16 @@ var Index = function (_React$Component) {
   }, {
     key: 'del',
     value: function del(e) {
-      console.log(e.target.id);
+      console.log(e.currentTarget.id);
+      var self = this;
+      var url = "/todos/" + e.currentTarget.id;
+
+      _jquery2.default.ajax({
+        type: 'DELETE',
+        url: url
+      }).done(function (data) {
+        self.reload();
+      });
     }
 
     // render
@@ -195,6 +204,7 @@ var Index = function (_React$Component) {
                       tooltip: 'Delete',
                       touch: true,
                       tooltipPosition: 'bottom-right',
+                      id: todo._id,
                       onClick: _this2.del.bind(_this2)
                     },
                     _react2.default.createElement(_close2.default, null)

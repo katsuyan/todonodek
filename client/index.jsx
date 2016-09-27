@@ -62,7 +62,15 @@ export default class Index extends React.Component {
 
   // del is delete todo
   del(e) {
-    console.log(e.target.id)
+    var self = this;
+    var url = "/todos/" + e.currentTarget.id
+
+    $.ajax({
+      type: 'DELETE',
+      url: url,
+    }).done(function(data) {
+      self.reload();
+    });
   }
 
   // render
@@ -103,6 +111,7 @@ export default class Index extends React.Component {
                   tooltip="Delete"
                   touch={true}
                   tooltipPosition="bottom-right"
+                  id={todo._id}
                   onClick={this.del.bind(this)}
                   >
                   <NavigationClose />
