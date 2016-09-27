@@ -101,11 +101,6 @@ var Index = function (_React$Component) {
             _react2.default.createElement(
               'div',
               null,
-              _react2.default.createElement(
-                'h1',
-                null,
-                'TODO LIST'
-              ),
               _react2.default.createElement(_TextField2.default, {
                 hintText: 'AddTodo',
                 floatingLabelText: 'AddTodo',

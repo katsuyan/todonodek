@@ -29,18 +29,14 @@ export default class Index extends React.Component {
         <div className="container">
           <MuiThemeProvider>
             <div>
-                <h1>TODO LIST</h1>
-
-
-                <TextField
-                  hintText="AddTodo"
-                  floatingLabelText="AddTodo"
-                  value={this.state.todo}
-                  onChange={(e)=>{this.setState({todo: e.target.value});}}
-                  style={{marginLeft: 700}}
-                />
+              <TextField
+                hintText="AddTodo"
+                floatingLabelText="AddTodo"
+                value={this.state.todo}
+                onChange={(e)=>{this.setState({todo: e.target.value});}}
+                style={{marginLeft: 700}}
+              />
               <RaisedButton label="add" style={{margin: 12}}/>
-
               <Col xs={11}>
                 {this.state.todoList.map((todo, i) => (
                   <List key={i}>
