@@ -63,11 +63,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // third party
 
+// my liblary
+
+
+// Index class is render index page
 var Index = function (_React$Component) {
   _inherits(Index, _React$Component);
 
+  //constructor
   function Index(props) {
     _classCallCheck(this, Index);
 
@@ -88,6 +93,9 @@ var Index = function (_React$Component) {
     return _this;
   }
 
+  // reload is reload state
+
+
   _createClass(Index, [{
     key: 'reload',
     value: function reload() {
@@ -102,6 +110,9 @@ var Index = function (_React$Component) {
         });
       });
     }
+
+    // add is add todo
+
   }, {
     key: 'add',
     value: function add(e) {
@@ -115,9 +126,15 @@ var Index = function (_React$Component) {
         self.reload();
       });
     }
+
+    // del is delete todo
+
   }, {
     key: 'del',
     value: function del(e) {}
+
+    // render
+
   }, {
     key: 'render',
     value: function render() {
@@ -191,9 +208,10 @@ var Index = function (_React$Component) {
   return Index;
 }(_react2.default.Component);
 
+// render
+
+
 exports.default = Index;
-
-
 _reactDom2.default.render(_react2.default.createElement(Index, null), document.getElementById('app'));
 
 },{"./menu.jsx":2,"jquery":150,"material-ui/Checkbox":274,"material-ui/Divider":276,"material-ui/IconButton":280,"material-ui/List":285,"material-ui/RaisedButton":289,"material-ui/TextField":299,"material-ui/styles/MuiThemeProvider":308,"material-ui/svg-icons/navigation/close":316,"react":482,"react-bootstrap/lib/Col":343,"react-dom":346}],2:[function(require,module,exports){
@@ -231,8 +249,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // third party
 
+
+// style
 var styles = {
   title: {
     color: 'white',
@@ -240,14 +260,20 @@ var styles = {
   }
 };
 
+// Menu class is menu componet
+
 var Menu = function (_React$Component) {
   _inherits(Menu, _React$Component);
 
+  // constructor
   function Menu(props) {
     _classCallCheck(this, Menu);
 
     return _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, props));
   }
+
+  // render menu
+
 
   _createClass(Menu, [{
     key: 'render',

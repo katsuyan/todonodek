@@ -1,7 +1,3 @@
-/**
- * node-mongodbのドキュメント
- * http://mongodb.github.io/node-mongodb-native/2.1/
- */
 var db;
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');

@@ -17,14 +17,14 @@ router.all( '/*', function ( req, res, next ) {
   next();
 } );
 
-// GET find
+// GET todos
 router.get( '/todos', function ( req, res ) {
   collection(COL).find().toArray(function(err, docs){
     res.send(docs);
   })
 } );
 
-// POST insert data
+// POST insert todo
 router.post( '/todos', function ( req, res ) {
   req.body.completed = false;
   collection(COL).insertOne( req.body ).then(function(r) {
@@ -32,14 +32,14 @@ router.post( '/todos', function ( req, res ) {
   });
 } );
 
-// PUT update data
+// PUT update todos completed
 router.put( '/todos/:id', function ( req, res ) {
   collection(COL).findOneAndUpdate( { _id: new ObjectID( req.params.id ) }, req.body, {}, function(err, r){
     res.send( r );
   } );
 } );
 
-// DELETE remove data
+// DELETE remove todo
 router.delete( '/todos/:id', function ( req, res ) {
   collection(COL).findOneAndDelete( { _id: new ObjectID( req.params.id ) }, {}, function(err, r){
     res.send( r );

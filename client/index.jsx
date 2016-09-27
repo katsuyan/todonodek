@@ -1,3 +1,4 @@
+// third party
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Col from 'react-bootstrap/lib/Col';
@@ -10,11 +11,12 @@ import TextField from 'material-ui/TextField';
 import Checkbox from 'material-ui/Checkbox';
 import $ from "jquery";
 import RaisedButton from 'material-ui/RaisedButton';
-
+// my liblary
 import Menu from './menu.jsx'
 
+// Index class is render index page
 export default class Index extends React.Component {
-
+  //constructor
   constructor(props) {
     super(props);
     self = this;
@@ -31,6 +33,7 @@ export default class Index extends React.Component {
     });
   }
 
+  // reload is reload state
   reload() {
     var self = this;
     $.ajax({
@@ -44,6 +47,7 @@ export default class Index extends React.Component {
     });
   }
 
+  // add is add todo
   add(e) {
     var self = this;
 
@@ -56,10 +60,12 @@ export default class Index extends React.Component {
     });
   }
 
+  // del is delete todo
   del(e) {
 
   }
 
+  // render
   render() {
     return (
       <div>
@@ -110,6 +116,7 @@ export default class Index extends React.Component {
   }
 }
 
+// render
 ReactDOM.render(
   <Index />,
   document.getElementById('app')
