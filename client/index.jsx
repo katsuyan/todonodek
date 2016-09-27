@@ -62,7 +62,7 @@ export default class Index extends React.Component {
 
   // del is delete todo
   del(e) {
-
+    console.log(e.target.id)
   }
 
   // render
@@ -103,6 +103,7 @@ export default class Index extends React.Component {
                   tooltip="Delete"
                   touch={true}
                   tooltipPosition="bottom-right"
+                  onClick={this.del.bind(this)}
                   >
                   <NavigationClose />
                 </IconButton>

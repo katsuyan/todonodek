@@ -131,7 +131,9 @@ var Index = function (_React$Component) {
 
   }, {
     key: 'del',
-    value: function del(e) {}
+    value: function del(e) {
+      console.log(e.target.id);
+    }
 
     // render
 
@@ -192,7 +194,8 @@ var Index = function (_React$Component) {
                       style: { marginTop: 21 },
                       tooltip: 'Delete',
                       touch: true,
-                      tooltipPosition: 'bottom-right'
+                      tooltipPosition: 'bottom-right',
+                      onClick: _this2.del.bind(_this2)
                     },
                     _react2.default.createElement(_close2.default, null)
                   );
