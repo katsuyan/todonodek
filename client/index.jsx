@@ -4,14 +4,14 @@ import Col from 'react-bootstrap/lib/Col';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Divider from 'material-ui/Divider';
 import {List, ListItem} from 'material-ui/List';
-import ContentInbox from 'material-ui/svg-icons/content/inbox';
-import Menu from './menu.jsx'
 import IconButton from 'material-ui/IconButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import TextField from 'material-ui/TextField';
 import Checkbox from 'material-ui/Checkbox';
 import $ from "jquery";
 import RaisedButton from 'material-ui/RaisedButton';
+
+import Menu from './menu.jsx'
 
 export default class Index extends React.Component {
 
