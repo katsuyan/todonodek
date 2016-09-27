@@ -132,7 +132,6 @@ var Index = function (_React$Component) {
   }, {
     key: 'del',
     value: function del(e) {
-      console.log(e.currentTarget.id);
       var self = this;
       var url = "/todos/" + e.currentTarget.id;
 
