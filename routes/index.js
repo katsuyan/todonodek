@@ -18,14 +18,14 @@ router.all( '/*', function ( req, res, next ) {
 } );
 
 // GET find
-router.get( '/api', function ( req, res ) {
+router.get( '/todo', function ( req, res ) {
   collection(COL).find().toArray(function(err, docs){
     res.send(docs);
   })
 } );
 
 // GET find :id
-router.get( '/api/:id', function ( req, res ) {
+router.get( '/todo/:id', function ( req, res ) {
   collection(COL).findOne( { _id: new ObjectID( req.params.id ) }, {}, function(err, r){
     res.send( r );
   } );
@@ -33,7 +33,7 @@ router.get( '/api/:id', function ( req, res ) {
 
 
 // POST insert data
-router.post( '/api', function ( req, res ) {
+router.post( '/todo', function ( req, res ) {
   req.body.completed = false;
   collection(COL).insertOne( req.body ).then(function(r) {
     res.send( r );
@@ -41,7 +41,7 @@ router.post( '/api', function ( req, res ) {
 } );
 
 // PUT update data
-router.put( '/api/:id', function ( req, res ) {
+router.put( '/todo/:id', function ( req, res ) {
   collection(COL).findOneAndUpdate( { _id: new ObjectID( req.params.id ) }, req.body, {}, function(err, r){
     res.send( r );
   } );
