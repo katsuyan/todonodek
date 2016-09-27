@@ -73,6 +73,15 @@ export default class Index extends React.Component {
     });
   }
 
+  // chagneComp is to change completed
+  changeComp(e) {
+    console.log(e.currentTarget.id);
+    var id = parseInt(e.currentTarget.id);
+    var changeTodo = this.state.todoList[id];
+    changeTodo.completed = !changeTodo.completed;
+    console.log(changeTodo)
+  }
+
   // render
   render() {
     return (
@@ -98,7 +107,11 @@ export default class Index extends React.Component {
                   <List key={i}>
                     <ListItem
                       primaryText={todo.name}
-                      leftCheckbox={<Checkbox defaultChecked={todo.completed}/>} />
+                      leftCheckbox={<Checkbox
+                                      defaultChecked={todo.completed}
+                                      id={i}
+                                      onClick={this.changeComp.bind(this)}/>}
+                      />
                     <Divider />
                   </List>
                 ))}

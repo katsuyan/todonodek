@@ -143,6 +143,18 @@ var Index = function (_React$Component) {
       });
     }
 
+    // chagneComp is to change completed
+
+  }, {
+    key: 'changeComp',
+    value: function changeComp(e) {
+      console.log(e.currentTarget.id);
+      var id = parseInt(e.currentTarget.id);
+      var changeTodo = this.state.todoList[id];
+      changeTodo.completed = !changeTodo.completed;
+      console.log(changeTodo);
+    }
+
     // render
 
   }, {
@@ -186,7 +198,11 @@ var Index = function (_React$Component) {
                     { key: i },
                     _react2.default.createElement(_List.ListItem, {
                       primaryText: todo.name,
-                      leftCheckbox: _react2.default.createElement(_Checkbox2.default, { defaultChecked: todo.completed }) }),
+                      leftCheckbox: _react2.default.createElement(_Checkbox2.default, {
+                        defaultChecked: todo.completed,
+                        id: i,
+                        onClick: _this2.changeComp.bind(_this2) })
+                    }),
                     _react2.default.createElement(_Divider2.default, null)
                   );
                 })

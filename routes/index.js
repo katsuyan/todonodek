@@ -32,7 +32,7 @@ router.post( '/todos', function ( req, res ) {
   });
 } );
 
-// PUT update todos completed
+// PUT update todo
 router.put( '/todos/:id', function ( req, res ) {
   collection(COL).findOneAndUpdate( { _id: new ObjectID( req.params.id ) }, req.body, {}, function(err, r){
     res.send( r );
