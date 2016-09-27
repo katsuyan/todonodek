@@ -21,7 +21,7 @@ export default class Index extends React.Component {
 
     $.ajax({
       type: "GET",
-      url: "/todo",
+      url: "/todos",
       async: false
     }).done(function(data) {
       self.state = {
@@ -35,7 +35,7 @@ export default class Index extends React.Component {
     var self = this;
     $.ajax({
       type: "GET",
-      url: "/todo"
+      url: "/todos"
     }).done(function(data) {
       self.setState({
         todoList: data,
@@ -49,7 +49,7 @@ export default class Index extends React.Component {
 
     $.ajax({
       type: 'POST',
-      url: "/todo",
+      url: "/todos",
       data: {name: this.state.todo}
     }).done(function(data) {
       self.reload();
@@ -57,7 +57,7 @@ export default class Index extends React.Component {
   }
 
   del(e) {
-    
+
   }
 
   render() {

@@ -77,7 +77,7 @@ var Index = function (_React$Component) {
 
     _jquery2.default.ajax({
       type: "GET",
-      url: "/todo",
+      url: "/todos",
       async: false
     }).done(function (data) {
       self.state = {
@@ -94,7 +94,7 @@ var Index = function (_React$Component) {
       var self = this;
       _jquery2.default.ajax({
         type: "GET",
-        url: "/todo"
+        url: "/todos"
       }).done(function (data) {
         self.setState({
           todoList: data,
@@ -109,7 +109,7 @@ var Index = function (_React$Component) {
 
       _jquery2.default.ajax({
         type: 'POST',
-        url: "/todo",
+        url: "/todos",
         data: { name: this.state.todo }
       }).done(function (data) {
         self.reload();
