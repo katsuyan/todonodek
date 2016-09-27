@@ -130,12 +130,12 @@ export default class Index extends React.Component {
                 floatingLabelText="AddTodo"
                 value={this.state.todo}
                 onChange={(e)=>{this.setState({todo: e.target.value});}}
-                style={{marginLeft: 27}}
+                style={{marginLeft: 20}}
               />
               <RaisedButton
                 label="add"
                 onClick={this.add.bind(this)}
-                style={{margin: 12}}
+                style={{margin: 12, marginLeft: 20}}
               />
             </div>
 

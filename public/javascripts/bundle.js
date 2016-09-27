@@ -224,12 +224,12 @@ var Index = function (_React$Component) {
                 onChange: function onChange(e) {
                   _this2.setState({ todo: e.target.value });
                 },
-                style: { marginLeft: 27 }
+                style: { marginLeft: 20 }
               }),
               _react2.default.createElement(_RaisedButton2.default, {
                 label: 'add',
                 onClick: this.add.bind(this),
-                style: { margin: 12 }
+                style: { margin: 12, marginLeft: 20 }
               })
             )
           )
